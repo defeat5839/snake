@@ -290,9 +290,9 @@ void Window::run()
                 break;
             case auto_run:  //设计目标是自动运行，自己吃食物
                 ctrl = snake.auto_run();
-            default :
+            default :   //剩下的交给蛇去处理
             {
-                switch(snake.deal_key(ctrl))  //剩下的交给蛇去处理
+                switch(snake.deal_key(ctrl))
                 {
                     case EATEN:
                         produce_food();
