@@ -41,11 +41,13 @@ using namespace std;
 const int width = 14;
 const int hight = 10;
 
+//控制按键
 const char auto_run = 'e';
 const char quit = 'q';
 const char manual = 'r';
 const char def = '\0';
 
+//不同部分（墙、蛇、食物、蛇头、背景）的数字编号
 const int FOOD_NUM = 2;
 const int BODY_NUM = 3;
 const int BK_NUM = 0;
@@ -58,6 +60,7 @@ const char* BODY= "\033[44;34m  \033[0m";
 const char* HEAD = "\033[45;34m  \033[0m";
 const char* FOOD = "\033[46;34m  \033[0m";
 
+//一些事件
 const int EATEN = 1;  //蛇吃掉了食物，要求窗口重新产生食物
 const int DEATH = 2;  //蛇撞墙或者撞自己，游戏结束
 const int EVERYTHING_IS_OK = 0;  //蛇正常走完一步，一切正常
@@ -272,7 +275,7 @@ void Window::run()
         for (int i=0;i<ups*period;++i)
         {
             if (kbhit())
-                ch = getch();
+                {ch = getch();break;}
             usleep(1000000/ups);
         }
         char ctrl = ch;
